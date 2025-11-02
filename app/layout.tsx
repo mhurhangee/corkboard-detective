@@ -3,9 +3,12 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider"
 import "./globals.css";
 
+const emojiFavicon = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔎</text></svg>'
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+
 });
 
 const geistMono = Geist_Mono({
@@ -16,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Corkboard Detective",
   description: "An web app corkboard to detective RPG games",
+  icons: {
+    icon: emojiFavicon,
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
       >
         <ThemeProvider
           attribute="class"
